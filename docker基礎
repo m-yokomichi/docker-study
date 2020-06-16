@@ -1,0 +1,28 @@
+# dockerとは
+ - アプリケーション開発のためのプラットフォーム
+ - Docker, Inc（支援会社）が作った
+ - 2013年3月 Python ConferenceのLTで発表
+
+# Dockerコンテナとは
+ - ホストOSのkernel機能を使い、複数のルート・ファイルシステムを実行
+  - 各ルートファイルシステムをコンテナと呼ぶ
+ - コンテナの実行に必要な環境 : Docker Engine
+
+# ホスト内のファイルシステム
+ - /data/centos ⇢ / | /etc /bin 
+ - /data/ubuntu ⇢ / | /etc /bin 
+※ chroot的な感じ
+ - chroot : ルートディレクトリを変更する技術
+
+# dockerライフサイクル
+1. docker client (開発環境) : docker run hello-world
+ - docker hub に登録されている hellow-worldを実行する
+2. docker engine : コンテナ化したhello-worldを実行する
+ - docker hub (レジストリ) : hello-worldレポジトリをDocker hub からダウンロード
+ - ローカルにイメージがあればイメージからコンテナ化する
+
+ # Docker イメージ
+ - コンテナを実行する時に必要なファイルシステム
+ - イメージ・レイヤの集合体
+ - 共通するレイヤはイメージ間で共有できる
+ - docker pull するとレイヤ単位に並列ダウンロードされる
